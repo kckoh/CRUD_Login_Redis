@@ -19,6 +19,7 @@ var session = require('express-session');
 
 const app = express();
 
+// routes
 const product = require("./public/route/product.js")
 
 const login = require("./public/route/login.js")
@@ -28,6 +29,8 @@ const register = require("./public/route/register.js")
 const post = require("./public/route/post.js")
 
 const home = require("./public/route/home.js")
+
+
 
 //connect to database
 conn.connect(err => {
