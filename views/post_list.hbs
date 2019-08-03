@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Login Form Tutorial</title>
+		<style>
+		
+		</style>
+		<link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+	  			{{#if isLoggedIn}}
+					  <a class="nav-link" href="/{{user_id}}">{{user}}</a>
+					{{else}}
+  						<a class="nav-link" href="/login">login</a>
+					{{/if}}
+      </li>
+      <li class="nav-item">
+	  		{{#unless isLoggedIn}}
+        <a class="nav-link" href="/register">Register</a>
+			{{/unless}}
+      </li>
+	  <li>
+	  	{{#if isLoggedIn}}
+	  	<a class="nav-link" href="/login/logout">Logout</a>
+		{{/if}}
+	  </li>
+    </ul>
+	</div>
+</nav>
+
+
+
+ <!-- Page Content -->
+  <div class="container">
+		{{#each results}}
+    <div class="row ">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-6 ">
+
+        <h1 class="my-4">
+          <small>{{ title }}</small>
+        </h1>
+
+        <!-- Blog Post -->
+        <div class="card mb-4">
+          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">Post Title</h2>
+            <p class="card-text">{{ content }}</p>
+            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on January 1, 2017 by
+            <a href="#">Start Bootstrap</a>
+          </div>
+        </div>
+
+        
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+          <li class="page-item">
+            <a class="page-link" href="#">&larr; Older</a>
+          </li>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">Newer &rarr;</a>
+          </li>
+        </ul>
+
+      </div>
+    
+
+      </div>
+		{{/each}}
+    </div>
+    <!-- /.row -->
+
+  </div>
+
+
+		<tbody>
+         {{#each results}}
+        <tr>
+          <td>{{ title }}</td>
+          <td>{{ content }}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+
+	</body>
+</html>

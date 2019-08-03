@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Login Form Tutorial</title>
+		<style>
+		.login-form {
+			width: 300px;
+			margin: 0 auto;
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+		.login-form h1 {
+			text-align: center;
+			color: #4d4d4d;
+			font-size: 24px;
+			padding: 20px 0 20px 0;
+		}
+		.login-form input[type="password"],
+		.login-form input[type="text"] {
+			width: 100%;
+			padding: 15px;
+			border: 1px solid #dddddd;
+			margin-bottom: 15px;
+			box-sizing:border-box;
+		}
+		.login-form input[type="submit"] {
+			width: 100%;
+			padding: 15px;
+			background-color: #535b63;
+			border: 0;
+			box-sizing: border-box;
+			cursor: pointer;
+			font-weight: bold;
+			color: #ffffff;
+		}
+		</style>
+		<link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+	  			{{#if isLoggedIn}}
+					  <a class="nav-link" href="/{{user_id}}">{{user}}</a>
+					{{else}}
+  						<a class="nav-link" href="/login">login</a>
+					{{/if}}
+      </li>
+      <li class="nav-item">
+	  		{{#unless isLoggedIn}}
+        <a class="nav-link" href="/register">Register</a>
+			{{/unless}}
+      </li>
+	  <li>
+	  	{{#if isLoggedIn}}
+	  	<a class="nav-link" href="/login/logout">Logout</a>
+		{{/if}}
+	  </li>
+    </ul>
+	</div>
+</nav>
+
+
+
+		<div class="login-form">
+			<h1>Login</h1>
+			<form action="/login" method="POST">
+				<input type="text" name="user_email" placeholder="user email" required>
+				<input type="password" name="user_password" placeholder="Password" required>
+				<input type="submit">
+			</form>
+		</div>
+	</body>
+</html>
