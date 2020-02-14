@@ -18,7 +18,7 @@
     "nodemon": "^1.19.1",
     "redis": "^2.8.0",
     "redis-session": "^0.1.0",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "prettier": "1.18.2"
